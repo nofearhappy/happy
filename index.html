@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 1000px;
+        color: rgb(235, 163, 163);
+      }
+    </style>
+  </head>
+  <body>
+    <div>天天开心</div>
+    <script src="./jquery.min.js"></script>
+    <script>
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        $("body").click(function (e) {
+          var a = new Array(
+            "无畏",
+            "布偶",
+            "耀星",
+            "汤圆",
+            "谎话",
+            "状态",
+            "爱慕",
+            "露娜",
+            "草莓",
+            "初恋",
+            "西施",
+            "仰慕"
+          );
+          var $i = $("<span/>").text(a[a_idx]);
+          a_idx = (a_idx + 1) % a.length;
+          var x = e.pageX,
+            y = e.pageY;
+          $i.css({
+            "z-index": 999,
+            top: y - 20,
+            left: x,
+            position: "absolute",
+            "font-weight": "bold",
+            color: "rgb(235, 163, 163",
+          });
+          $("body").append($i);
+          $i.animate(
+            {
+              top: y - 180,
+              opacity: 0,
+            },
+            1500,
+            function () {
+              $i.remove();
+            }
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
